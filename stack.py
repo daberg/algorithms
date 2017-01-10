@@ -12,7 +12,7 @@ class Stack:
 
     def push(self, data):
 
-        if self.head == None:
+        if self.head is None:
             self.head = Node(data)
         
         else:
@@ -22,7 +22,7 @@ class Stack:
             
     def pop(self):
 
-        if self.head == None:
+        if self.head is None:
             return None
 
         else:
@@ -32,14 +32,14 @@ class Stack:
 
     def top(self):
         
-        if self.head == None:
+        if self.head is None:
             return None
 
         return self.head.data
 
     def is_empty(self):
 
-        return self.head == None
+        return self.head is None
 
 
 """

@@ -11,7 +11,7 @@ class Queue:
 
     def enqueue(self, data):
 
-        if self.head == None:
+        if self.head is None:
             self.head = Node(data)
 
         else:
@@ -26,7 +26,7 @@ class Queue:
 
     def dequeue(self):
 
-        if self.head == None:
+        if self.head is None:
             return None
 
         temp = self.head.data
@@ -35,11 +35,11 @@ class Queue:
         return temp
     
     def is_empty(self):
-        return self.head == None:
+        return self.head is None
 
     def top(self):
 
-        if self.head == None:
+        if self.head is None:
             return None
 
         return self.head.data
