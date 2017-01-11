@@ -138,6 +138,41 @@ class BinaryTree:
     def breadth_first_print(self):
 
         self.breadth_first_visit(print_node)
+    
+    def has(self, data):
+
+        return self._has(self.root, data)
+
+    def _has(self, node, data):
+
+        if node is None:
+            return False
+
+        elif node.data == data:
+            return True
+
+        else:
+            return self._has(node.left, data) or self._has(node.right, data)
+
+    def count_leaves(self):
+
+        if self.root is None:
+            return 0
+
+        else:
+            return self._count_leaves(self.root)
+
+    def _count_leaves(self, node):
+
+        if node is None:
+            return 0
+
+        elif node.left is None and node.right is None:
+            return 1
+
+        else:
+            return (self._count_leaves(node.left)
+                    + self._count_leaves(node.right))
 
 
 tree = BinaryTree()
@@ -148,11 +183,5 @@ tree.add(9)
 tree.add(27)
 tree.add(98)
 tree.add(126)
-tree.print()
-print()
-tree.iter_preorder_print()
-print()
-print(tree.height())
-print()
-tree.breadth_first_print()
+print(tree.count_leaves())
 
