@@ -183,6 +183,34 @@ class BinarySearchTree:
 
         self.breadth_first_visit(print_node)
 
+    def print_by_level(self):
+
+        if self.root is None:
+            print("Empty tree.")
+
+        else:
+
+            nqueue = Queue()
+            nqueue.enqueue((0, self.root))
+
+            level = -1
+
+            while not nqueue.is_empty():
+
+                curr = nqueue.dequeue()
+
+                if curr[1] is not None:
+
+                    if curr[0] != level:
+                        level = curr[0]
+                        print("\n" + str(level) + "| ", end='')
+
+                    print(str(curr[1].key) + " ", end='')
+                    nqueue.enqueue((level + 1, curr[1].left))
+                    nqueue.enqueue((level + 1, curr[1].right))
+
+            print()
+
     def has(self, key):
 
         return self._has(self.root, key)
@@ -302,6 +330,9 @@ class BinarySearchTree:
 
                 if node.left is not None and node.right is not None:
                     
+                    # Search for successor to node (it is the node of the right
+                    # subtree with the lowest key, i.e. is the leftmost)
+
                     prev = node
                     curr = node.right
 
@@ -311,23 +342,10 @@ class BinarySearchTree:
 
                     successor = curr
 
-                    successor.left = node.left
-                    successor.right = node.right.right
+                    self._remove(successor, successor.key, prev)
 
-                    # Do this after the = node.left assignment because
-                    # prev could be node itself
-                    prev.left = None
-
-                    if parent is not None:
-
-                        if parent.left is node:
-                            parent.left = successor
-
-                        elif parent.right is node:
-                            parent.right = successor
-
-                    else:
-                        self.root = successor
+                    node.key = successor.key
+                    node.data = successor.data
                             
                     return node.data
 
@@ -366,36 +384,59 @@ class BinarySearchTree:
 
             else: # node.key > key
                 return self._remove(node.left, key, node)
-                            
+
+    def print_structure(self):
+
+        if self.root is None:
+            print("Tree is empty.")
+
+        else:
+            self._print_structure(self.root, "", True)
+
+    def _print_structure(self, node, prefix, is_tail):
+
+        if node is not None:
+
+            print(prefix + ("└──" if is_tail else "├── ") + str(node.key))
+
+            prefix_add = "    " if is_tail else "│   "
+
+            if node.left and node.right:
+                self._print_structure(node.left, prefix + prefix_add, False) 
+                self._print_structure(node.right, prefix + prefix_add, True) 
+            else:
+                self._print_structure(node.left, prefix + prefix_add, True) 
+                self._print_structure(node.right, prefix + prefix_add, True) 
+
 
 tree = BinarySearchTree()
 tree.add(10, 214)
 tree.add(14, 123)
 tree.add(235, 7)
 tree.add(9, "test")
-tree.add(27, Queue())
+tree.add(13, Queue())
 tree.add(98, "lol")
 tree.add(126)
-tree.inorder_print()
+tree.print_structure()
 print()
 tree.remove(10)
-tree.inorder_print()
+tree.print_structure()
 print()
 tree.remove(126)
-tree.inorder_print()
+tree.print_structure()
 print()
 tree.remove(9)
-tree.inorder_print()
+tree.print_structure()
 print()
 tree.remove(98)
-tree.inorder_print()
+tree.print_structure()
 print()
 tree.remove(235)
-tree.inorder_print()
+tree.print_structure()
 print()
 tree.remove(14)
-tree.inorder_print()
+tree.print_structure()
 print()
 tree.remove(27)
-tree.inorder_print()
+tree.print_structure()
 print()
