@@ -33,7 +33,7 @@ class BinarySearchTree:
     def _add(self, node, key, data):
 
         if node.key == key:
-            return None
+            node.data = data
 
         elif key < node.key:
 
