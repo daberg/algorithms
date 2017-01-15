@@ -225,9 +225,9 @@ class BinarySearchTree:
 
         else:
             return self._has(node.left, key) or self._has(node.right, key)
-    
+
     def get(self, key):
-        
+
         return self._get(self.root, key)
 
     def _get(self, node, key):
@@ -303,7 +303,7 @@ class BinarySearchTree:
 
         else:
             return self._remove(self.root, key, None)
-    
+
     def _remove(self, node, key, parent):
 
         if node is None:
@@ -325,11 +325,11 @@ class BinarySearchTree:
 
                     else:
                         self.root = None
-                        
+
                     return node.data
 
                 if node.left is not None and node.right is not None:
-                    
+
                     # Search for successor to node (it is the node of the right
                     # subtree with the lowest key, i.e. is the leftmost)
 
@@ -346,7 +346,7 @@ class BinarySearchTree:
 
                     node.key = successor.key
                     node.data = successor.data
-                            
+
                     return node.data
 
                 if node.left is not None:
@@ -402,13 +402,13 @@ class BinarySearchTree:
             prefix_add = "    " if is_tail else "│   "
 
             if node.left and node.right:
-                self._print_structure(node.left, prefix + prefix_add, False) 
-                self._print_structure(node.right, prefix + prefix_add, True) 
+                self._print_structure(node.left, prefix + prefix_add, False)
+                self._print_structure(node.right, prefix + prefix_add, True)
             else:
-                self._print_structure(node.left, prefix + prefix_add, True) 
-                self._print_structure(node.right, prefix + prefix_add, True) 
+                self._print_structure(node.left, prefix + prefix_add, True)
+                self._print_structure(node.right, prefix + prefix_add, True)
 
-
+"""
 tree = BinarySearchTree()
 tree.add(10, 214)
 tree.add(14, 123)
@@ -440,3 +440,4 @@ print()
 tree.remove(27)
 tree.print_structure()
 print()
+"""
