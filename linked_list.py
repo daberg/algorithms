@@ -1,3 +1,15 @@
+class Iterator:
+    
+    def __init__(self, linked_list):
+        self.linked_list = linked_list
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        pass
+
+
 class Node:
 
     def __init__(self, data=None):
@@ -11,6 +23,14 @@ class LinkedList:
     def __init__(self):
 
         self.head = None
+
+    def __iter__(self):
+
+        curr = self.head
+
+        while curr:
+            yield curr.data
+            curr = curr.next
 
     def push(self, data):
 
@@ -30,7 +50,7 @@ class LinkedList:
         if self.head is not None:
             self.head = self.head.next
 
-    def asLast(self, data):
+    def as_last(self, data):
 
         new_node = Node()
         new_node.data = data
@@ -112,16 +132,12 @@ class LinkedList:
 
             print(output)
 
-
+"""
 llist = LinkedList()
 llist.push(3)
 llist.push(5)
 llist.push(1)
-llist.asLast(12)
-llist.print()
-print()
-print(llist.count())
-print()
-llist.reverse()
-llist.print()
-
+llist.as_last(12)
+for element in llist:
+    print(element)
+"""
