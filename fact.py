@@ -1,4 +1,5 @@
-# Function to compute factorial of a positive integer
+# Functions to compute factorial of a positive integer
+
 
 def iter_fact(n):
 
@@ -12,6 +13,7 @@ def iter_fact(n):
 
     return ris
 
+
 def rec_fact(n):
 
     if n == 0:
@@ -19,9 +21,11 @@ def rec_fact(n):
 
     return n * rec_fact(n - 1)
 
+
 def tail_rec_fact(n):
 
     return _tail_rec_fact(n, 1)
+
 
 def _tail_rec_fact(n, res):
 
@@ -30,7 +34,8 @@ def _tail_rec_fact(n, res):
 
     return _tail_rec_fact(n - 1, res * n)
 
-#print(iter_fact(10))
-print(rec_fact(50))
-#print(tail_rec_fact(10))
 
+if __name__ == "__main__":
+    print(iter_fact(10))
+    print(rec_fact(50))
+    print(tail_rec_fact(10))

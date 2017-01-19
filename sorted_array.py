@@ -11,6 +11,7 @@ Examples
 3 6 7 10 11 12
 """
 
+
 class SortedArray:
 
     def __init__(self):
@@ -32,8 +33,8 @@ class SortedArray:
 
         if start > end:
 
-           self.list.insert(start, new)
-           return start
+            self.list.insert(start, new)
+            return start
 
         mid = (start + end) // 2
 
@@ -72,13 +73,14 @@ class SortedArray:
         elif self.list[mid] > element:
             return self._rec_search(element, start, mid - 1)
 
-array = SortedArray()
 
-print(array.insert(4))
-print(array.insert(10))
-print(array.insert(2))
-print(array.insert(1))
-print(array.insert(6))
-print(array.insert(149))
-print(array.insert(4))
-print(array.python_list())
+if __name__ == "__main__":
+    array = SortedArray()
+    print(array.insert(4))
+    print(array.insert(10))
+    print(array.insert(2))
+    print(array.insert(1))
+    print(array.insert(6))
+    print(array.insert(149))
+    print(array.insert(4))
+    print(array.python_list())

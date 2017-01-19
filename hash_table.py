@@ -38,7 +38,7 @@ class ChainingTableEntry:
         curr.next = ChainNode(key, data)
 
     def remove(self, key):
-        
+
         if self.head is None:
             return None
 
@@ -106,6 +106,8 @@ class ChainingHashTable:
         # fractionary part of the product between Knuth constant and the key.
         # Note that the hash is obtained just by using standard arithmetic
         # operations.
+        # 32-bit ctypes integers could have been used instead of standard
+        # integers to avoid that last '&' masking.
         return (product >> (32 - self.index_size)) & (self.max_index)
 
     def add(self, key, data):
@@ -132,17 +134,17 @@ class ChainingHashTable:
 
             i = i + 1
 
-
-htable = ChainingHashTable()
-htable.add(10, "asd")
-htable.add(2918, "lulz")
-htable.add(2918, "test")
-htable.add(110, 239)
-htable.add(10, "xd")
-htable.add(9, 5012)
-htable.add(36, "lmao")
-htable.add(2918, "test2")
-htable.remove(10)
-htable.remove(0)
-htable.remove(119)
-htable.print_table()
+if __name__ == "__main__":
+    htable = ChainingHashTable()
+    htable.add(10, "asd")
+    htable.add(2918, "lulz")
+    htable.add(2918, "test")
+    htable.add(110, 239)
+    htable.add(10, "xd")
+    htable.add(9, 5012)
+    htable.add(36, "lmao")
+    htable.add(2918, "test2")
+    htable.remove(10)
+    htable.remove(0)
+    htable.remove(119)
+    htable.print_table()

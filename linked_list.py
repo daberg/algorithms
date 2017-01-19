@@ -1,5 +1,5 @@
 class Iterator:
-    
+
     def __init__(self, linked_list):
         self.linked_list = linked_list
 
@@ -13,7 +13,7 @@ class Iterator:
 class Node:
 
     def __init__(self, data=None):
-        
+
         self.data = data
         self.next = None
 
@@ -105,7 +105,7 @@ class LinkedList:
             return 0
 
         else:
-            
+
             count = 0
             curr = self.head
 
@@ -132,12 +132,12 @@ class LinkedList:
 
             print(output)
 
-"""
-llist = LinkedList()
-llist.push(3)
-llist.push(5)
-llist.push(1)
-llist.as_last(12)
-for element in llist:
-    print(element)
-"""
+
+if __name__ == "__main__":
+    llist = LinkedList()
+    llist.push(3)
+    llist.push(5)
+    llist.push(1)
+    llist.as_last(12)
+    for element in llist:
+        print(element)

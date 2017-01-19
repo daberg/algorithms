@@ -261,8 +261,8 @@ class BinarySearchTree:
             return 1
 
         else:
-            return (self._count_leaves(node.left)
-                    + self._count_leaves(node.right))
+            return (self._count_leaves(node.left) +
+                    self._count_leaves(node.right))
 
     def min_node(self):
 
@@ -382,7 +382,7 @@ class BinarySearchTree:
             elif node.key < key:
                 return self._remove(node.right, key, node)
 
-            else: # node.key > key
+            else:    # node.key > key
                 return self._remove(node.left, key, node)
 
     def print_structure(self):
@@ -408,36 +408,36 @@ class BinarySearchTree:
                 self._print_structure(node.left, prefix + prefix_add, True)
                 self._print_structure(node.right, prefix + prefix_add, True)
 
-"""
-tree = BinarySearchTree()
-tree.add(10, 214)
-tree.add(14, 123)
-tree.add(235, 7)
-tree.add(9, "test")
-tree.add(13, Queue())
-tree.add(98, "lol")
-tree.add(126)
-tree.print_structure()
-print()
-tree.remove(10)
-tree.print_structure()
-print()
-tree.remove(126)
-tree.print_structure()
-print()
-tree.remove(9)
-tree.print_structure()
-print()
-tree.remove(98)
-tree.print_structure()
-print()
-tree.remove(235)
-tree.print_structure()
-print()
-tree.remove(14)
-tree.print_structure()
-print()
-tree.remove(27)
-tree.print_structure()
-print()
-"""
+
+if __name__ == "__main__":
+    tree = BinarySearchTree()
+    tree.add(10, 214)
+    tree.add(14, 123)
+    tree.add(235, 7)
+    tree.add(9, "test")
+    tree.add(13, Queue())
+    tree.add(98, "lol")
+    tree.add(126)
+    tree.print_structure()
+    print()
+    tree.remove(10)
+    tree.print_structure()
+    print()
+    tree.remove(126)
+    tree.print_structure()
+    print()
+    tree.remove(9)
+    tree.print_structure()
+    print()
+    tree.remove(98)
+    tree.print_structure()
+    print()
+    tree.remove(235)
+    tree.print_structure()
+    print()
+    tree.remove(14)
+    tree.print_structure()
+    print()
+    tree.remove(27)
+    tree.print_structure()
+    print()

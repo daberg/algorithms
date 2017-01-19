@@ -4,8 +4,9 @@ class Node:
         self.data = data
         self.next = None
 
+
 class Queue:
-    
+
     def __init__(self):
         self.head = None
 
@@ -16,7 +17,7 @@ class Queue:
 
         else:
             new = Node(data)
-            
+
             curr = self.head
 
             while curr.next is not None:
@@ -33,7 +34,7 @@ class Queue:
         self.head = self.head.next
 
         return temp
-    
+
     def is_empty(self):
         return self.head is None
 
@@ -43,14 +44,14 @@ class Queue:
             return None
 
         return self.head.data
-"""
-queue = Queue()
-queue.enqueue(5)
-queue.enqueue(6)
-queue.enqueue(8)
-print(queue.dequeue())
-print(queue.dequeue())
-print(queue.top())
-print(queue.dequeue())
-"""
 
+
+if __name__ == "__main__":
+    queue = Queue()
+    queue.enqueue(5)
+    queue.enqueue(6)
+    queue.enqueue(8)
+    print(queue.dequeue())
+    print(queue.dequeue())
+    print(queue.top())
+    print(queue.dequeue())

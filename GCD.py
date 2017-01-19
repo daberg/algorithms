@@ -1,20 +1,22 @@
 # Functions to calculate the greatest common denominator of two (strictly)
 # positive integers.
-# 
+#
 # Note that proper bad input handling should be implemented (with helper
 # functions in case of the recursive implementations).
+
 
 def sub_rec_GCD(n, m):
 
     if n == m:
         return n
-    
+
     elif n > m:
         return sub_rec_GCD(m, n - m)
 
     else:
         return sub_rec_GCD(n, m - n)
-    
+
+
 def sub_iter_GCD(n, m):
 
     while n != m:
@@ -27,6 +29,7 @@ def sub_iter_GCD(n, m):
 
     return n
 
+
 def mod_rec_GCD(n, m):
 
     if m == 0:
@@ -34,6 +37,7 @@ def mod_rec_GCD(n, m):
 
     else:
         return mod_rec_GCD(m, n % m)
+
 
 def mod_iter_GCD(n, m):
 
@@ -43,8 +47,3 @@ def mod_iter_GCD(n, m):
         m = mod
 
     return n
-
-print(mod_iter_GCD(30, 18))
-print(mod_iter_GCD(47, 13))
-print(mod_iter_GCD(0, 1))
-
