@@ -13,7 +13,7 @@ def selection_sort(a):
         tmp = a[i]
         a[i] = min_val
         a[min_index] = tmp
-        
+
 
 if __name__ == "__main__":
 
